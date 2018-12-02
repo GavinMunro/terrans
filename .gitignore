@@ -78,3 +78,5 @@ venv.bak/
 
 # Don't commit AWS keys in .tfvars file
 terraform.tfvars
+# Ignore Terraform's hidden folder
+.terraform
