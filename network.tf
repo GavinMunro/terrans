@@ -5,6 +5,11 @@ resource "aws_vpc" "app_vpc" {
   }
 }
 
+resource "aws_vpc_endpoint" "s3" {
+  vpc_id       = "${aws_vpc.app_vpc.id}"
+  service_name = "com.amazonaws.us-east-2.s3"
+}
+
 resource "aws_security_group" "Svr1" {
   name = "Svr1SecGrp"
   vpc_id = "${aws_vpc.app_vpc.id}"

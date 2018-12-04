@@ -1,5 +1,5 @@
 # Region Credentials
-variable "region_ip" {}
+#variable "region_ip" {}
 variable "secret_key" {}
 variable "access_key" {}
 variable "svr1_ami_image" {}
