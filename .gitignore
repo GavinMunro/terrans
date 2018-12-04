@@ -80,5 +80,9 @@ venv.bak/
 terraform.tfvars
 # Ignore Terraform's hidden folder
 .terraform
-/state
+# Ignore transient tfstate files
+*.tfstate
+*.tfstate.backup
+state/
+
 
