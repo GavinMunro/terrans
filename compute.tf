@@ -6,17 +6,17 @@ resource "aws_instance" "svr1" {
   tags{
       Name="Server #1"
   }
-  subnet_id = "${aws_subnet.pub_subnet.id}"
+  subnet_id = "${aws_default_subnet.default_az1.id}"
 
   user_data = <<-EOF
-              #!/bin/bash
-              echo "Hello, World" > index.html
-              nohup busybox httpd -f -p 8080 &
-              EOF
+    #!/bin/bash
+    echo "Hello, World" > index.html
+    nohup busybox httpd -f -p 8080 &
+  EOF
 
   key_name = "${aws_key_pair.app_keypair.key_name}"
 
-  vpc_security_group_ids = ["${aws_security_group.Svr1.id}"]
+  vpc_security_group_ids = ["${aws_default_security_group.default.id}"]
 
 }
 
